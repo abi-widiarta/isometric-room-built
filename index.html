@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>My first three.js app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet" /> -->
+    
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
+
+    <style>
+      /* canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+      } */
+
+      /* body {
+        font-family: monospace;
+      } */
+
+      /* main {
+        position: absolute;
+      } */
+
+      section {
+        display: flex;
+        align-items: start;
+        width: 100vw;
+        height: 1000px;
+        /* border: 2px solid red; */
+      }
+
+      .effect-container {
+        /* background-color: blue; */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+      }
+
+      .title-container {
+        /* transform: translateX(-2000px); */
+        /* transform: perspective(1000px) rotateX(-5deg) rotateY(-180deg) rotateZ(2deg); */
+        margin-left: 60px;
+        /* opacity: 0; */
+      }
+
+      .desc-container {
+        /* transform: translateX(-2000px); */
+        /* transform: perspective(1000px) rotateX(-5deg) rotateY(-180deg) rotateZ(2deg); */
+        margin-left: 60px;
+
+        /* opacity: 0; */
+      }
+
+      .text-container {
+        /* transform: perspective(1000px) rotateX(0deg) rotateY(-180deg) rotateZ(0deg); */
+        transform: perspective(1000px) rotateX(-5deg) rotateY(-180deg) rotateZ(2deg);
+        transform-style: preserve-3d;
+        margin-left: 60px;
+        opacity: 0;
+
+        /* box-shadow: 24px 16px 64px 0 rgba(0, 0, 0, 0.08); */
+        /* transform-origin: left; */
+      }
+
+      .effect-container2 {
+        /* background-color: blue; */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+      }
+
+      .title-container2 {
+        /* transform: translateX(-2000px); */
+        margin-left: 60px;
+      }
+
+      .desc-container2 {
+        /* transform: translateX(-2000px); */
+        margin-left: 60px;
+      }
+
+      .text-container2 {
+        transform: perspective(1000px) rotateX(-5deg) rotateY(-180deg) rotateZ(2deg);
+        /* transform: perspective(1000px) rotateX(0deg) rotateY(-180deg) rotateZ(0deg); */
+        transform-style: preserve-3d;
+        margin-left: 60px;
+        opacity: 0;
+
+        /* box-shadow: 24px 16px 64px 0 rgba(0, 0, 0, 0.08); */
+        /* transform-origin: left; */
+      }
+
+      .project-title {
+        /* transform: perspective(1000px) rotateX(-5deg) rotateY(180deg) rotateZ(2deg); */
+        /* transform: perspective(1000px) rotateX(0deg) rotateY(-180deg) rotateZ(0deg); */
+        transform: perspective(1000px) rotateX(10deg) rotateY(10deg) rotateZ(-2deg) translateX(-100px);
+        transform-origin: left;
+        transform-style: preserve-3d;
+        opacity: 0;
+      }
+
+      .text {
+        /* background-color: #c4e6ff20; */
+        border: 2px solid #fff;
+        backdrop-filter: blur(4px);
+        width: 400px;
+      }
+
+      .text-project {
+        /* background-color: #c4e6ff20; */
+        border: 2px solid #fff;
+        backdrop-filter: blur(4px);
+        width: 500px;
+      }
+
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        padding: 40px;
+        margin-top: 60px;
+        /* height: 300px; */
+      }
+
+      .active {
+        animation: float 6s ease-in-out infinite;
+        /* background-color: red; */
+      }
+
+      @keyframes float {
+        0% {
+          transform: translatey(0px);
+        }
+        50% {
+          transform: translatey(-20px);
+        }
+        100% {
+          transform: translatey(0px);
+        }
+      }
+
+      .section {
+        display: flex;
+        align-items: start;
+      }
+
+      /* .section-6 {
+        background-color: rgba(225, 225, 225, 0.4);
+        backdrop-filter: blur(4px);
+      } */
+    </style>
+    <script type="module" crossorigin src="/assets/index-ed1b0b82.js"></script>
+    <link rel="stylesheet" href="/assets/index-35a8170a.css">
+  </head>
+  <body class="relative m-0 overflow-x-hidden font-mono">
+    <canvas class="fixed top-0 left-0" id="bg"></canvas>
+
+    <main class="absolute">
+      <div class="wrapper">
+        <section class="section section-1"></section>
+        <section class="section section-2"></section>
+        <section class="section section-3"></section>
+        <section class="section section-4">
+          <div class="effect-container">
+            <div class="text-container text-white">
+              <h1 class="text-4xl font-semibold title-container">/About-me</h1>
+              <div class="text desc-container rounded-lg subtitle space-y-6 bg-gradient-to-tr from-blue-800/10 from-5% via-blue-800/30 via-50% to-white/20 to-99%">
+                <div class="flex flex-col justify-start items-center">
+                  <div class="relative flex items-end">
+                    <div class="img w-24 mb-3 shadow-lg shadow-slate-500/20 aspect-square flex items-end justify-center rounded-full border-2"></div>
+                    <img class="w-28 drop-shadow-2xl absolute -top-[18px] -right-[5px] max-w-none rounded-full" src="profile.png" alt="" />
+                  </div>
+                  <h1 class="text-2xl font-semibold">abi widiarta</h1>
+                  <h1 class="text-sm">web enthusiast</h1>
+                </div>
+                <p class="text-justify">Hey there! I'm abi widiarta, a computer-science student at Telkom University, Indonesia.</p>
+                <p class="text-justify">What you are seeing right now is a miniature of my dorm room, of course there is no pokemon in my actual room, but hey! if I could I would love to! ;)</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section section-5"></section>
+        <section class="section section-6">
+          <div class="project-1-effect-container2 effect-container2 text-white">
+            <div class="flex flex-col">
+              <h1 class="text-4xl ml-[120px] font-semibold project-1-project-title project-title">/Project #1</h1>
+              <div class="project-1-text-container2 text-container2">
+                <!-- <div class="text mb-10 ml-[60px] rounded-lg bg-gradient-to-tr px-[40px] py-6 from-blue-800/10 from-5% via-blue-800/30 via-50% to-white/20 to-99%">
+            <h1 class="text-2xl">Project 1</h1>
+          </div> -->
+                <div class="text-project desc-container2 rounded-lg subtitle space-y-4 bg-gradient-to-tr from-blue-800/10 from-5% via-blue-800/30 via-50% to-white/20 to-99%">
+                  <div class="flex mb-4">
+                    <div>
+                      <h1 class="text-2xl font-semibold mb-2">Frontend Practice Clone</h1>
+                      <p>-2021</p>
+                    </div>
+                    <div class="flex justify-center space-x-2 items-center">
+                      <img src="html-icon.png" class="w-20 aspect-square" />
+                      <img src="css-icon.png" class="w-20 aspect-square" />
+                      <!-- <img class="w-28 max-w-none rounded-full" src="profile.png" alt="" /> -->
+                    </div>
+                  </div>
+                  <span class="block h-[2px] w-full bg-white my-4"></span>
+                  <p class="text-justify">This is the first project of my web development journey. It's a static website focus on only implementing css on html.</p>
+                  <p class="text-justify">
+                    This website is a clone of
+                    <a class="relative transition-all duration-300" target="_blank" href="https://www.frontendpractice.com/"> <span class="absolute mt-1 bottom-0 left-0 inline-block w-full h-[1px] bg-white"></span>frontendpractice.com</a>
+                    and already responsive but the breakpoints not yet following the recommended convention.
+                  </p>
+                  <p class="text-justify hover:font-extrabold transition-all hover:tracking-widest">> <a href="https://frontendpractice-rebuilt-html-css.vercel.app/" target="_blank">Demo</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section section-7"></section>
+        <section class="section section-8">
+          <div class="effect-container2 project-2-effect-container2 text-white">
+            <div class="flex flex-col">
+              <h1 class="text-4xl ml-[120px] font-semibold project-2-project-title project-title">/Project-#2</h1>
+              <div class="project-2-text-container2 text-container2">
+                <!-- <div class="text mb-10 ml-[60px] rounded-lg bg-gradient-to-tr px-[40px] py-6 from-blue-800/10 from-5% via-blue-800/30 via-50% to-white/20 to-99%">
+                <h1 class="text-2xl">Project 1</h1>
+              </div> -->
+                <div class="text-project desc-container2 rounded-lg subtitle space-y-4 bg-gradient-to-tr from-blue-800/10 from-5% via-blue-800/30 via-50% to-white/20 to-99%">
+                  <div class="flex mb-4">
+                    <div>
+                      <h1 class="text-2xl font-semibold mb-2">Frontend Practice Clone</h1>
+                      <p>-2021</p>
+                    </div>
+                    <div class="flex justify-center space-x-2 items-center">
+                      <img src="html-icon.png" class="w-20 aspect-square" />
+                      <img src="css-icon.png" class="w-20 aspect-square" />
+                      <!-- <img class="w-28 max-w-none rounded-full" src="profile.png" alt="" /> -->
+                    </div>
+                  </div>
+                  <span class="block h-[2px] w-full bg-white my-4"></span>
+                  <p class="text-justify">This is the first project of my web development journey. It's a static website focus on only implementing css on html.</p>
+                  <p class="text-justify">
+                    This website is a clone of
+                    <a class="relative transition-all duration-300" target="_blank" href="https://www.frontendpractice.com/"> <span class="absolute mt-1 bottom-0 left-0 inline-block w-full h-[1px] bg-white"></span>frontendpractice.com</a>
+                    and already responsive but the breakpoints not yet following the recommended convention.
+                  </p>
+                  <p class="text-justify hover:font-extrabold transition-all hover:tracking-widest">> <a href="https://frontendpractice-rebuilt-html-css.vercel.app/" target="_blank">Demo</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section section-9"></section>
+        <section class="section section-10">
+          <div class="effect-container2 project-3-effect-container2 text-white">
+            <div class="-translate-y-20 flex flex-col">
+              <h1 class="text-4xl ml-[120px] font-semibold project-3-project-title project-title">/Project-#3</h1>
+              <div class="project-3-text-container2 text-container2">
+                <!-- <div class="text mb-10 ml-[60px] rounded-lg bg-gradient-to-tr px-[40px] py-6 from-blue-800/10 from-5% via-blue-800/30 via-50% to-white/20 to-99%">
+                <h1 class="text-2xl">Project 1</h1>
+              </div> -->
+                <div class="text-project desc-container2 rounded-lg subtitle space-y-4 bg-gradient-to-tr from-blue-800/10 from-5% via-blue-800/30 via-50% to-white/20 to-99%">
+                  <div class="flex mb-4">
+                    <div>
+                      <h1 class="text-2xl font-semibold mb-2">Frontend Practice Clone</h1>
+                      <p>-2021</p>
+                    </div>
+                    <div class="flex justify-center space-x-2 items-center">
+                      <img src="html-icon.png" class="w-20 aspect-square" />
+                      <img src="css-icon.png" class="w-20 aspect-square" />
+                      <!-- <img class="w-28 max-w-none rounded-full" src="profile.png" alt="" /> -->
+                    </div>
+                  </div>
+                  <span class="block h-[2px] w-full bg-white my-4"></span>
+                  <p class="text-justify">This is the first project of my web development journey. It's a static website focus on only implementing css on html.</p>
+                  <p class="text-justify">
+                    This website is a clone of
+                    <a class="relative transition-all duration-300" target="_blank" href="https://www.frontendpractice.com/"> <span class="absolute mt-1 bottom-0 left-0 inline-block w-full h-[1px] bg-white"></span>frontendpractice.com</a>
+                    and already responsive but the breakpoints not yet following the recommended convention.
+                  </p>
+                  <p class="text-justify hover:font-extrabold transition-all hover:tracking-widest">> <a href="https://frontendpractice-rebuilt-html-css.vercel.app/" target="_blank">Demo</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section section-11"></section>
+        <section class="section section-12">
+          <div class="effect-container2 project-4-effect-container2 text-white">
+            <div class="-translate-y-96 flex flex-col">
+              <h1 class="text-4xl ml-[120px] font-semibold project-4-project-title project-title">/Project-#4</h1>
+              <div class="project-4-text-container2 text-container2">
+                <!-- <div class="text mb-10 ml-[60px] rounded-lg bg-gradient-to-tr px-[40px] py-6 from-blue-800/10 from-5% via-blue-800/30 via-50% to-white/20 to-99%">
+                <h1 class="text-2xl">Project 1</h1>
+              </div> -->
+                <div class="text-project desc-container2 rounded-lg subtitle space-y-4 bg-gradient-to-tr from-blue-800/10 from-5% via-blue-800/30 via-50% to-white/20 to-99%">
+                  <div class="flex mb-4">
+                    <div>
+                      <h1 class="text-2xl font-semibold mb-2">Frontend Practice Clone</h1>
+                      <p>-2021</p>
+                    </div>
+                    <div class="flex justify-center space-x-2 items-center">
+                      <img src="html-icon.png" class="w-20 aspect-square" />
+                      <img src="css-icon.png" class="w-20 aspect-square" />
+                      <!-- <img class="w-28 max-w-none rounded-full" src="profile.png" alt="" /> -->
+                    </div>
+                  </div>
+                  <span class="block h-[2px] w-full bg-white my-4"></span>
+                  <p class="text-justify">This is the first project of my web development journey. It's a static website focus on only implementing css on html.</p>
+                  <p class="text-justify">
+                    This website is a clone of
+                    <a class="relative transition-all duration-300" target="_blank" href="https://www.frontendpractice.com/"> <span class="absolute mt-1 bottom-0 left-0 inline-block w-full h-[1px] bg-white"></span>frontendpractice.com</a>
+                    and already responsive but the breakpoints not yet following the recommended convention.
+                  </p>
+                  <p class="text-justify hover:font-extrabold transition-all hover:tracking-widest">> <a href="https://frontendpractice-rebuilt-html-css.vercel.app/" target="_blank">Demo</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section section-13"></section>
+        <section class="section section-14"></section>
+        <!-- <section class="section section-15"></section>
+        <section class="section section-16"></section>
+        <section class="section section-17"></section>
+        <section class="section section-18"></section> -->
+        <!-- <section class="section section-19"></section>
+        <section class="section section-20"></section>
+        <section class="section section-21"></section>
+        <section class="bg-blue-600 section section-22"></section> -->
+        <!-- <section class="section section-10"></section>
+        <section class="section section-10"></section>
+        <section class="section section-10"></section> -->
+        <!-- <section class="section section-11"></section>
+        <section class="section section-12"></section> -->
+      </div>
+    </main>
+    <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      AOS.init();
+    </script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- <script type="module" src="/psyduck.js"></script> -->
+    
+  </body>
+</html>
